@@ -27,6 +27,7 @@ if (NOT GGML_BACKEND_DL)
     add_subdirectory(sam)
     add_subdirectory(simple)
     add_subdirectory(magika)
+    add_subdirectory(custom)
 endif()
 
 if (GGML_METAL)

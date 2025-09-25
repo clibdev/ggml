@@ -4,7 +4,7 @@ project("ggml" C CXX ASM)
 ### GGML Version
 set(GGML_VERSION_MAJOR 0)
 set(GGML_VERSION_MINOR 9)
-set(GGML_VERSION_PATCH 0)
+set(GGML_VERSION_PATCH 2)
 set(GGML_VERSION_DEV "-dev")  # "-dev" for development, "" for releases
 set(GGML_VERSION_BASE "${GGML_VERSION_MAJOR}.${GGML_VERSION_MINOR}.${GGML_VERSION_PATCH}")
 
@@ -170,7 +170,6 @@ option(GGML_RV_ZVFH          "ggml: enable riscv zvfh"       ON)
 option(GGML_RV_ZICBOP        "ggml: enable riscv zicbop"     ON)
 option(GGML_XTHEADVECTOR     "ggml: enable xtheadvector"     OFF)
 option(GGML_VXE              "ggml: enable vxe"              ON)
-option(GGML_NNPA             "ggml: enable nnpa"             OFF)  # temp disabled by default, see: https://github.com/ggml-org/llama.cpp/issues/14877
 
 option(GGML_CPU_ALL_VARIANTS "ggml: build all variants of the CPU backend (requires GGML_BACKEND_DL)" OFF)
 set(GGML_CPU_ARM_ARCH        "" CACHE STRING "ggml: CPU architecture for ARM")

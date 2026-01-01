@@ -61,8 +61,6 @@ static ggml_cgraph *build_graph(ggml_context *ctx_cgraph, const Perceptron &mode
     ggml_tensor *result = ggml_mul_mat(ctx_cgraph, model.linear_weight, input);
     result = ggml_add(ctx_cgraph, result, model.linear_bias);
     result = ggml_sigmoid(ctx_cgraph, result);
-    ggml_set_name(result, "output");
-    ggml_set_output(result);
 
     ggml_build_forward_expand(gf, result);
 
@@ -78,7 +76,7 @@ void inference(ggml_cgraph *gf, const Perceptron &model, const float *input_data
         return;
     }
 
-    const ggml_tensor *output = ggml_graph_get_tensor(gf, "output");
+    const ggml_tensor *output = ggml_graph_node(gf, -1);
     ggml_backend_tensor_get(output, output_data, 0, ggml_nbytes(output));
 }
 
